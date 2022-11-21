@@ -10,8 +10,8 @@ export default {
     <header class="p-4">
         <div class="container">
             <div class="row">
-                <div class="col-3">
-                    <h1 class="logo">LOGO</h1>
+                <div class="logo col-3">
+                    <img src="/logo-boolflix.png" alt="logo-boolflix">
                 </div>
                 <div class="col-6 offset-3 d-flex">
                     <AppSearchBar />
@@ -28,7 +28,10 @@ export default {
     header{
         background: linear-gradient($color-red, $color-darkgrey);
         .logo{
-            color: #fff;
+            width: 200px;
+            img{
+                max-width: 100%;
+            }
         }
     }
 </style>

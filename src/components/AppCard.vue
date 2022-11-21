@@ -8,17 +8,24 @@ export default {
 </script>
 
 <template>
-<ul>
+<div class="col-3">
+    <ul>
     <li>
-        <h1>{{movie.results.title}}</h1>
-        <h2>{{movie.results.original_title}}</h2>
-        <h3>{{movie.results.original_language}}</h3>
-        <h4>{{movie.results.vote_average}}</h4>
+
+        <h1>{{movie.title}}</h1>
+        <h2>{{movie.original_title}}</h2>
+        <h3>{{movie.original_language}}</h3>
+        <h4>{{movie.vote_average}}</h4>
     </li>
 </ul>
+</div>
+
     
 </template>
 
 <style lang="scss" scoped>
     @use '../styles/partials/variables.scss' as *;
+    ul{
+        color: #fff;
+    }
 </style>

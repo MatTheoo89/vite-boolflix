@@ -8,7 +8,7 @@ export default {
         return{
             store,
         }
-    }
+    },
 }
 </script>
 
@@ -19,7 +19,7 @@ export default {
         type="text"
         placeholder="Search..."
         aria-label="default input example">
-    <button type="button" class="btn btn-primary">Search</button>
+    <button @click="$emit('startSearch')" type="button" class="btn btn-primary">Search</button>
 </template>
 
 <style lang="scss" scoped>

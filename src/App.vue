@@ -21,7 +21,7 @@ export default {
         query: store.inputToSearch,
       }})
       .then(result => {store.resultDataAll = result.data;})
-      .catch( error => {console.log(error);})
+      .catch( error => {store.errorMsg = error;})
     }
   },
   mounted(){
@@ -33,7 +33,7 @@ export default {
 <template>
 
   <AppHeader />
-  <AppMain />
+  <AppMain @startSearch='getCallApi()'/>
 
 </template>
 

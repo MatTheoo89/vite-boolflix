@@ -5,4 +5,5 @@ export const store = reactive({
     api_key: '05313fae78870a3455445793950e677f',
     inputToSearch: 'matrix',
     resultDataAll: [],
+    errorMsg: '',
 });

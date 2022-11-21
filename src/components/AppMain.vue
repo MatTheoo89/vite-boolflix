@@ -10,17 +10,22 @@ export default {
         return{
             store
         }
-    }
+    },
 }
 </script>
 
 <template>
 <main>
-    
-    <AppCard
-        v-for="(movie, id) in store.resultDataAll"
+    <div class="container">
+        <div class="row">
+                <AppCard
+        v-for="(movie, id) in store.resultDataAll.results"
         :key="id"
         :movie="movie" />
+        </div>
+    </div>
+    
+    
 
 </main>
 
