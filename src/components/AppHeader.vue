@@ -21,6 +21,7 @@ export default {
                 </div>
                 <div class="col-6 offset-3 d-flex">
                     <input
+                        @keyup.enter="$emit('startSearch')"
                         v-model="store.inputToSearch"
                         class="form-control me-4"
                         type="text"
