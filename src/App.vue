@@ -22,7 +22,8 @@ export default {
         language: store.language,
       }})
       .then(result => {
-        store.resultDataAll.results.forEach(item => {
+        store.resultDataAll = result.data;
+        store.resultDataAll.forEach(item => {
           if (item.original_language == 'en') {
             item.original_language = 'gb';
           }
