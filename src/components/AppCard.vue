@@ -25,13 +25,13 @@ export default {
             <!-- stampa bandiera inglese -->
             <span :class="(movie.original_language == 'en') ? 'fi fi-gb' : 'fi fi-' + movie.original_language"></span>
             
-            <h5 v-if="movie.original_language.length">Lang: {{movie.original_language}}</h5>
+            <h5 v-if="movie.original_language.length <= 2">Lang: {{movie.original_language}}</h5>
             
             <h5>Voto: {{movie.vote_average}}</h5>
             </div>
 
-            <div class="description">
-                <p>overview: {{movie.overview}}</p>
+            <div class="description" v-if="movie.overview.length > 0">
+                <p>{{movie.overview}}</p>
             </div>
 
         </div>
