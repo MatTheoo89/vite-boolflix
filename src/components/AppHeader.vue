@@ -10,7 +10,9 @@ export default {
     <header class="p-4">
         <div class="container">
             <div class="row">
-                <div class="col-3"></div>
+                <div class="col-3">
+                    <h1 class="logo">LOGO</h1>
+                </div>
                 <div class="col-6 offset-3 d-flex">
                     <AppSearchBar />
                 </div>
@@ -24,6 +26,9 @@ export default {
     @use '../styles/partials/variables.scss' as *;
 
     header{
-        background: linear-gradient($color-red, $color-darkgrey)
+        background: linear-gradient($color-red, $color-darkgrey);
+        .logo{
+            color: #fff;
+        }
     }
 </style>

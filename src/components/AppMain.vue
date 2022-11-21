@@ -1,14 +1,29 @@
 <script>
+
+    import { store } from '../data/store';
+    import AppCard from './AppCard.vue';
+
 export default {
+    components: { AppCard },
     name: 'AppMain',
+    data(){
+        return{
+            store
+        }
+    }
 }
 </script>
 
 <template>
 <main>
+    
+    <AppCard
+        v-for="(movie, id) in store.resultDataAll"
+        :key="id"
+        :movie="movie" />
 
 </main>
-    
+
 </template>
 
 <style lang="scss" scoped>
