@@ -16,9 +16,7 @@ export default {
 
         <div class="my-card-text p-3">
             <h4>{{movie.title}}</h4>
-            <h5
-                v-if="movie.original_title !== movie.title"
-            >{{movie.original_title}}</h5>
+            <h5 v-if="movie.original_title !== movie.title">{{movie.original_title}}</h5>
             <span :class="'fi fi-' + movie.original_language" ></span>
             <h5>lang: {{movie.original_language}}</h5>
             <h5>{{movie.vote_average}}</h5>
