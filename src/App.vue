@@ -31,7 +31,7 @@ export default {
     }
   },
   mounted(){
-    this.getCallApi();
+    //this.getCallApi();
   },
 }
 </script>
