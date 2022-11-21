@@ -15,12 +15,18 @@ export default {
         </div>
 
         <div class="my-card-text p-3">
-            <h4>{{movie.title}}</h4>
-            <h5 v-if="movie.original_title !== movie.title">{{movie.original_title}}</h5>
-            <span :class="'fi fi-' + movie.original_language" ></span>
+
+            <!-- titolo film o serie tv -->
+            <h4>{{movie.title || movie.name}}</h4>
+
+            <!-- Stampa titolo originale se differente da titotlo -->
+            <h6 v-if="movie.original_title !== movie.title">{{movie.original_title}}</h6>
+            <span :class="(movie.original_language == 'en') ? 'fi fi-gb' : 'fi fi-' + movie.original_language"></span>
             <h5>lang: {{movie.original_language}}</h5>
             <h5>{{movie.vote_average}}</h5>
+            <div class="description">
             <p>{{movie.overview}}</p>
+            </div>
     </div>
 </div>
 
@@ -63,9 +69,9 @@ export default {
         transition: all 700ms;
         height: 60%;
         background-color: rgba(0, 0, 0, 0);
-        p{
+        .description{
             overflow: auto;
-            height: 60%;
+            height: 65%;
         }
     }
 

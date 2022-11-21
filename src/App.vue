@@ -19,9 +19,15 @@ export default {
       axios.get(store.apiUrl,{params:{
         api_key: store.api_key,
         query: store.inputToSearch,
+        language: store.language,
       }})
-      .then(result => {store.resultDataAll = result.data;})
-      .catch( error => {store.errorMsg = error;})
+      .then(result => {
+        store.resultDataAll.results.forEach(item => {
+          if (item.original_language == 'en') {
+            item.original_language = 'gb';
+          }
+        });
+      }).catch( error => {store.errorMsg = error;})
     }
   },
   mounted(){
