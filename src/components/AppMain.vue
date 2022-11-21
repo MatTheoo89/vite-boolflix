@@ -16,7 +16,7 @@ export default {
 
 <template>
 <main>
-    <div class="container">
+    <div class="container pt-5">
         <div class="row">
                 <AppCard
         v-for="(movie, id) in store.resultDataAll.results"
