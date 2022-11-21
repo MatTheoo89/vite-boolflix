@@ -32,8 +32,8 @@ export default {
 
 <template>
 
-  <AppHeader />
-  <AppMain @startSearch='getCallApi()'/>
+  <AppHeader @startSearch='getCallApi()'/>
+  <AppMain />
 
 </template>
 

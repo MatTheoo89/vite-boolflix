@@ -1,8 +1,14 @@
 <script>
-import AppSearchBar from './AppSearchBar.vue'
+
+    import { store } from '../data/store'
+
 export default {
-    components: { AppSearchBar },
     name: 'AppHeader',
+    data(){
+        return{
+            store
+        }
+    },
 }
 </script>
 
@@ -14,7 +20,17 @@ export default {
                     <img src="/logo-boolflix.png" alt="logo-boolflix">
                 </div>
                 <div class="col-6 offset-3 d-flex">
-                    <AppSearchBar />
+                    <input
+                        v-model="store.inputToSearch"
+                        class="form-control me-4"
+                        type="text"
+                        placeholder="Search..."
+                        aria-label="default input example">
+                    <button
+                        @click="$emit('startSearch')"
+                        type="button"
+                        class="btn btn-primary">Search
+                    </button>
                 </div>
             </div>
         </div>
