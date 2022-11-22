@@ -24,7 +24,8 @@ export default {
     <div class="my-card mb-5">
 
         <div class="my-card-image">
-            <img :src="'http://image.tmdb.org/t/p/w342/' + card.poster_path" :alt="card.title || card.name">
+            <img v-if="card.poster_path !== null" :src="'http://image.tmdb.org/t/p/w342/' + card.poster_path" :alt="card.title || card.name" >
+            <img v-else src="../assets/img/no-image.webp" alt="no image avaible" style="height: 100%;">
         </div>
 
         <div class="my-card-hover p-3">
@@ -67,7 +68,7 @@ export default {
     .my-card{
         position: relative;
         background-color: #fff;
-        height: 450px;
+        height: 430px;
         flex-basis: 23%;
         overflow: hidden;
         border-radius: 10px;
