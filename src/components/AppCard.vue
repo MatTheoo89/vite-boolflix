@@ -32,7 +32,7 @@ export default {
                 <!-- stampa bandiera inglese-->
                 <span :class="(card.original_language == 'en' || card.original_language == 'uk') ? 'fi fi-gb' : 'fi fi-' + card.original_language"></span>
                 
-                <h5 v-if="card.original_language.length <= 2">Lang: {{card.original_language}}</h5>
+                <h5>Lang: {{card.original_language}}</h5>
                 
                 <!--v-if="this.ratingStar() > 0" -->
                 <h5 v-if="this.ratingStar() > 0">Voto:
