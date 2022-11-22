@@ -30,8 +30,7 @@ export default {
                 <h6 v-if="card.original_title !== card.title">Titolo originale: {{card.original_title}}</h6>
 
                 <!-- stampa bandiera inglese-->
-                <span
-                    :class="(card.original_language == 'en' || card.original_language == 'uk') ? 'fi fi-gb' : 'fi fi-' + card.original_language"></span>
+                <span :class="(card.original_language == 'en' || card.original_language == 'uk') ? 'fi fi-gb' : 'fi fi-' + card.original_language"></span>
                 
                 <h5>Lang: {{card.original_language}}</h5>
                 
