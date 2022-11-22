@@ -30,24 +30,26 @@ export default {
         <div class="my-card-hover p-3">
             <div class="info">
                 <!-- titolo film o serie tv -->
-            <h4>{{card.title || card.name}}</h4>
+                <h4>{{card.title || card.name}}</h4>
 
-            <!-- Stampa titolo originale se differente da titotlo -->
-            <h6 v-if="card.original_title !== card.title">Titolo originale: {{card.original_title}}</h6>
+                <!-- Stampa titolo originale se differente da titotlo -->
+                <h6 v-if="card.original_title !== card.title">Titolo originale: {{card.original_title}}</h6>
 
-            <!-- stampa bandiera inglese -->
-            <span :class="(card.original_language == 'en') ? 'fi fi-gb' : 'fi fi-' + card.original_language"></span>
-            
-            <h5 v-if="card.original_language.length <= 2">Lang: {{card.original_language}}</h5>
-            
-            <h5>Voto:
-                <i 
-                    v-for="(star, i) in this.ratingStar()" :key="i"
-                    class="fa-solid fa-star"></i>/ 5
-            </h5>
+                <!-- stampa bandiera inglese-->
+                <span :class="(card.original_language == 'en') ? 'fi fi-gb' : 'fi fi-' + card.original_language"></span>
+                
+                <h5 v-if="card.original_language.length <= 2">Lang: {{card.original_language}}</h5>
+                
+                <!--v-if="this.ratingStar() > 0" -->
+                <h5 v-if="this.ratingStar() > 0">Voto:
+                    <i 
+                        v-for="(star, i) in this.ratingStar()" :key="i"
+                        class="fa-solid fa-star"></i>/ 5
+                </h5>
+                <h5 v-else>Voto: <span>Nessun voto</span></h5>
             </div>
 
-            <div class="description" v-if="card.overview.length > 0">
+            <div id="scrollbar" class="description" v-if="card.overview.length > 0">
                 <p>{{card.overview}}</p>
             </div>
 
@@ -79,16 +81,23 @@ export default {
             height: 100%;
             border-radius: 10px;
             opacity: 1;
-            background-color: rgba(0, 0, 0, .85);
+            background-color: rgba(0, 0, 0, .65);
+        }
+        &:hover img{
+            filter: brightness(.4) blur(2px);
         }
     }
     .my-card-image{
         height: 100%;
         img{
             max-width: 100%;
+            filter: brightness(1) blur(0px);
+            transition: all 680ms;
         }
     }
     .my-card-hover{
+        display: flex;
+        flex-direction: column;
         color: white;
         position: absolute;
         top: 100%;
@@ -98,17 +107,27 @@ export default {
         transition: all 700ms;
         background-color: rgba(0, 0, 0, 0);
         .info{
-            height: 40%;
+            margin-bottom: 10px;
             i{
                 color: #d4af37;
                 margin-right: 5px;
             }
+            h5{
+                span{
+                    font-size: .8rem;
+                }
+            }
         }
         .description{
-            height: 60%;
             overflow: auto;
+            &{
+                scrollbar-width: thin;
+                scroll-padding-block-start: 3px;
+                scrollbar-color: lighten($color-darkgrey, 5%) rgba(51, 51, 51, 0.1) ;
+}
             p{
                 font-size: .8rem;
+                padding: 3px;
             }
         }
     }

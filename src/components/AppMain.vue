@@ -19,7 +19,7 @@ export default {
     <div class="container pt-5">
         <div class="row">
 
-            <h1 v-if="store.movieData.length > 0">Film</h1>
+            <h2 v-if="store.movieData.length > 0">Film</h2>
 
                 <AppCard
                     v-for="(movie, id) in store.movieData"
@@ -29,7 +29,7 @@ export default {
 
         <div class="row">
 
-            <h1 v-if="store.tvData.length > 0">Serie tv</h1>
+            <h2 v-if="store.tvData.length > 0">Serie tv</h2>
 
                 <AppCard
                     v-for="(tv, id) in store.tvData"
@@ -50,5 +50,11 @@ export default {
     main{
         background: $color-darkgrey;
         min-height: 100vh;
+        h2{
+            color: lighten($color-lightgrey, 10%);
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
     }
 </style>
