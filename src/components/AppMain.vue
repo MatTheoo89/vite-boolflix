@@ -38,7 +38,7 @@ export default {
         </div>
 
         <div
-            v-if="(store.movieData.length && store.tvData.length) === 0"
+            v-if="store.movieData.length === 0 && store.tvData.length === 0"
             class="row">
             <h1>Nessun risultato trovato</h1>
         </div>

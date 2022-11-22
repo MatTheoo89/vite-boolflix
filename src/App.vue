@@ -30,14 +30,9 @@ export default {
         }),
         store.tvData = store.resultDataAll.results.filter((item) => {
           return item.media_type === 'tv'
-        }),
-        store.resultDataAll.forEach(item => {
-          if (item.original_language == 'en') {
-            item.original_language = 'gb';
-          }
-        });
-      })
-      .catch( error => {store.errorMsg = error;})
+        })
+    })
+      .catch( error => {store.errorMsg = error})
     },
     firstCall(){
       axios.get('https://api.themoviedb.org/3/movie/popular?api_key=05313fae78870a3455445793950e677f&language=it-IT')
