@@ -36,6 +36,12 @@ export default {
                     :key="id"
                     :card="tv" />
         </div>
+
+        <div
+            v-if="(store.movieData.length && store.tvData.length) === 0"
+            class="row">
+            <h1>Nessun risultato trovato</h1>
+        </div>
     </div>
     
     

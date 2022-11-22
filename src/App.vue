@@ -40,7 +40,7 @@ export default {
       .catch( error => {store.errorMsg = error;})
     },
     firstCall(){
-      axios.get('https://api.themoviedb.org/3/movie/popular?api_key=05313fae78870a3455445793950e677f')
+      axios.get('https://api.themoviedb.org/3/movie/popular?api_key=05313fae78870a3455445793950e677f&language=it-IT')
       .then(result => {
         store.movieData = result.data.results;
       })
@@ -54,7 +54,7 @@ export default {
 
 <template>
 
-  <AppHeader @startSearch='getCallApi()'/>
+  <AppHeader @startSearch='getCallApi()' @ricaricaPage='firstCall()'/>
   <AppMain />
 
 </template>

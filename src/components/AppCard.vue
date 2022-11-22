@@ -4,18 +4,11 @@ export default {
     props:{
         card: Object 
     },
-    data(){
-        return{
-        }
-    },
     methods:{
         ratingStar(){
                 console.log(Math.ceil(this.card.vote_average / 2));
             return Math.ceil(this.card.vote_average / 2)
         }
-    },
-    mounted(){
-        
     }
 }
 </script>

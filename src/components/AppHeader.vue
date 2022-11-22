@@ -17,7 +17,9 @@ export default {
         <div class="container">
             <div class="row">
                 <div class="logo col-3">
-                    <img src="/logo-boolflix.png" alt="logo-boolflix">
+                    <img
+                        @click="$emit('ricaricaPage')"
+                        src="/logo-boolflix.png" alt="logo-boolflix">
                 </div>
                 <div class="col-6 offset-3 d-flex">
                     <input
@@ -47,6 +49,7 @@ export default {
         .logo{
             width: 200px;
             img{
+                cursor: pointer;
                 max-width: 100%;
             }
         }
