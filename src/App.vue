@@ -38,10 +38,16 @@ export default {
         });
       })
       .catch( error => {store.errorMsg = error;})
+    },
+    firstCall(){
+      axios.get('https://api.themoviedb.org/3/movie/popular?api_key=05313fae78870a3455445793950e677f')
+      .then(result => {
+        store.movieData = result.data.results;
+      })
     }
   },
   mounted(){
-    //this.getCallApi();
+    this.firstCall()
   },
 }
 </script>
