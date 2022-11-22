@@ -40,7 +40,11 @@ export default {
             
             <h5 v-if="card.original_language.length <= 2">Lang: {{card.original_language}}</h5>
             
-            <h5>Voto: {{this.ratingStar()}}</h5>
+            <h5>Voto:
+                <i 
+                    v-for="(star, i) in this.ratingStar()" :key="i"
+                    class="fa-solid fa-star"></i>/ 5
+            </h5>
             </div>
 
             <div class="description" v-if="card.overview.length > 0">
@@ -95,6 +99,10 @@ export default {
         background-color: rgba(0, 0, 0, 0);
         .info{
             height: 40%;
+            i{
+                color: #d4af37;
+                margin-right: 5px;
+            }
         }
         .description{
             height: 60%;
