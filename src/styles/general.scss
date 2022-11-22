@@ -10,6 +10,13 @@ body{
     font-family: $main-font;
 }
 
+
+html,body,main{
+    scrollbar-width: thin;
+    scroll-padding-block-start: 3px;
+    scrollbar-color: lighten($color-darkgrey, 5%) rgba(51, 51, 51, 0.1) ;
+}
+
 ::-webkit-scrollbar{
     background-color: rgba(51, 51, 51, 0.555);
     width: 6px;
