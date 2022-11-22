@@ -51,6 +51,9 @@ export default {
             img{
                 cursor: pointer;
                 max-width: 100%;
+                &:hover{
+                    scale: (1.1);
+                }
             }
         }
     }

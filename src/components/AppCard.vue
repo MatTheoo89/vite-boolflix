@@ -1,6 +1,11 @@
 <script>
 export default {
     name: 'AppCard',
+    data(){
+        return{
+            langArray:['it','en', 'uk', 'fr', 'de', 'es', 'jp'],
+        }
+    },
     props:{
         card: Object 
     },
@@ -30,9 +35,13 @@ export default {
                 <h6 v-if="card.original_title !== card.title">Titolo originale: {{card.original_title}}</h6>
 
                 <!-- stampa bandiera inglese-->
-                <span :class="(card.original_language == 'en' || card.original_language == 'uk') ? 'fi fi-gb' : 'fi fi-' + card.original_language"></span>
+                <div class="language mb-3" v-if="langArray.includes(card.original_language)">
+                    <span class="me-3">Lang:</span>
+                    <span :class="(card.original_language == 'en' || card.original_language == 'uk') ? 'fi fi-gb' : 'fi fi-' + card.original_language"></span>
                 
-                <h5>Lang: {{card.original_language}}</h5>
+                </div>
+                    <span class="mb-3" v-else>Lang: {{card.original_language}}</span>
+                
                 
                 <h5 v-if="this.ratingStar() > 0">Voto:
                     <i v-for="(star, i) in this.ratingStar()" :key="i" class="fa-solid fa-star"></i>
