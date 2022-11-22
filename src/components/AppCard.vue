@@ -6,7 +6,7 @@ export default {
     },
     methods:{
         ratingStar(){
-                console.log(Math.ceil(this.card.vote_average / 2));
+                //console.log(Math.ceil(this.card.vote_average / 2));
             return Math.ceil(this.card.vote_average / 2)
         }
     }
@@ -30,15 +30,14 @@ export default {
                 <h6 v-if="card.original_title !== card.title">Titolo originale: {{card.original_title}}</h6>
 
                 <!-- stampa bandiera inglese-->
-                <span :class="(card.original_language == 'en' || card.original_language == 'uk') ? 'fi fi-gb' : 'fi fi-' + card.original_language"></span>
+                <span
+                    :class="(card.original_language == 'en' || card.original_language == 'uk') ? 'fi fi-gb' : 'fi fi-' + card.original_language"></span>
                 
                 <h5>Lang: {{card.original_language}}</h5>
                 
-                <!--v-if="this.ratingStar() > 0" -->
                 <h5 v-if="this.ratingStar() > 0">Voto:
-                    <i 
-                        v-for="(star, i) in this.ratingStar()" :key="i"
-                        class="fa-solid fa-star"></i>/ 5
+                    <i v-for="(star, i) in this.ratingStar()" :key="i" class="fa-solid fa-star"></i>
+                    <i v-for="(i, index) in (5 - this.ratingStar())" :key="index" class="far fa-star"></i>
                 </h5>
                 <h5 v-else>Voto: <span>Nessun voto</span></h5>
             </div>
