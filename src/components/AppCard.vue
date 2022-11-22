@@ -2,7 +2,20 @@
 export default {
     name: 'AppCard',
     props:{
-        movie: Object,
+        card: Object 
+    },
+    data(){
+        return{
+        }
+    },
+    methods:{
+        ratingStar(){
+                console.log(Math.ceil(this.card.vote_average / 2));
+            return Math.ceil(this.card.vote_average / 2)
+        }
+    },
+    mounted(){
+        
     }
 }
 </script>
@@ -11,27 +24,27 @@ export default {
     <div class="my-card mb-5">
 
         <div class="my-card-image">
-            <img :src="'http://image.tmdb.org/t/p/w342/' + movie.poster_path" :alt="movie.title || movie.name">
+            <img :src="'http://image.tmdb.org/t/p/w342/' + card.poster_path" :alt="card.title || card.name">
         </div>
 
         <div class="my-card-hover p-3">
             <div class="info">
                 <!-- titolo film o serie tv -->
-            <h4>{{movie.title || movie.name}}</h4>
+            <h4>{{card.title || card.name}}</h4>
 
             <!-- Stampa titolo originale se differente da titotlo -->
-            <h6 v-if="movie.original_title !== movie.title">Titolo originale: {{movie.original_title}}</h6>
+            <h6 v-if="card.original_title !== card.title">Titolo originale: {{card.original_title}}</h6>
 
             <!-- stampa bandiera inglese -->
-            <span :class="(movie.original_language == 'en') ? 'fi fi-gb' : 'fi fi-' + movie.original_language"></span>
+            <span :class="(card.original_language == 'en') ? 'fi fi-gb' : 'fi fi-' + card.original_language"></span>
             
-            <h5 v-if="movie.original_language.length <= 2">Lang: {{movie.original_language}}</h5>
+            <h5 v-if="card.original_language.length <= 2">Lang: {{card.original_language}}</h5>
             
-            <h5>Voto: {{movie.vote_average}}</h5>
+            <h5>Voto: {{this.ratingStar()}}</h5>
             </div>
 
-            <div class="description" v-if="movie.overview.length > 0">
-                <p>{{movie.overview}}</p>
+            <div class="description" v-if="card.overview.length > 0">
+                <p>{{card.overview}}</p>
             </div>
 
         </div>
@@ -62,7 +75,7 @@ export default {
             height: 100%;
             border-radius: 10px;
             opacity: 1;
-            background-color: rgba(0, 0, 0, .9);
+            background-color: rgba(0, 0, 0, .85);
         }
     }
     .my-card-image{

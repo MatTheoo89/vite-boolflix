@@ -18,10 +18,23 @@ export default {
 <main>
     <div class="container pt-5">
         <div class="row">
+
+            <h1 v-if="store.movieData.length > 0">Film</h1>
+
                 <AppCard
-        v-for="(movie, id) in store.resultDataAll.results"
-        :key="id"
-        :movie="movie" />
+                    v-for="(movie, id) in store.movieData"
+                    :key="id"
+                    :card="movie" />
+        </div>
+
+        <div class="row">
+
+            <h1 v-if="store.tvData.length > 0">Serie tv</h1>
+
+                <AppCard
+                    v-for="(tv, id) in store.tvData"
+                    :key="id"
+                    :card="tv" />
         </div>
     </div>
     

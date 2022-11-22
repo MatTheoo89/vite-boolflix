@@ -16,19 +16,28 @@ export default {
   },
   methods:{
     getCallApi(){
+      store.resultDataAll = [];
       axios.get(store.apiUrl,{params:{
         api_key: store.api_key,
         query: store.inputToSearch,
         language: store.language,
       }})
       .then(result => {
+        store.inputToSearch = '';
         store.resultDataAll = result.data;
+        store.movieData = store.resultDataAll.results.filter((item) => {
+          return item.media_type === 'movie'
+        }),
+        store.tvData = store.resultDataAll.results.filter((item) => {
+          return item.media_type === 'tv'
+        }),
         store.resultDataAll.forEach(item => {
           if (item.original_language == 'en') {
             item.original_language = 'gb';
           }
         });
-      }).catch( error => {store.errorMsg = error;})
+      })
+      .catch( error => {store.errorMsg = error;})
     }
   },
   mounted(){

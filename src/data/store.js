@@ -6,5 +6,7 @@ export const store = reactive({
     language: 'it-IT',
     inputToSearch: '',
     resultDataAll: [],
+    movieData: [],
+    tvData: [],
     errorMsg: '',
 });
