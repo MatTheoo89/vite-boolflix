@@ -73,12 +73,13 @@ export default {
             border: none;
             outline: none;
             background-color: rgba(18, 18, 18, .6);
-            padding: 15px 0;
+            padding: 18px 0;
             box-shadow: none;
             transition: all 750ms;
             text-indent: 20px;
             &:focus{
                 width: 100%;
+                box-shadow: 0 0 6px $color-red;
             }
             &::placeholder{
                 color: lighten($color-lightgrey, 40%);
@@ -90,6 +91,7 @@ export default {
         z-index: 2;
         width: 60px;
         height: 60px;
+        line-height: 60px;
         border-radius: 50%;
         border: none;
         outline: none;
