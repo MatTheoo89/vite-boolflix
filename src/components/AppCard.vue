@@ -68,7 +68,7 @@ export default {
     .my-card{
         position: relative;
         background-color: #fff;
-        height: 430px;
+        max-height: 430px;
         flex-basis: 23%;
         overflow: hidden;
         border-radius: 10px;
