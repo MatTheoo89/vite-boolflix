@@ -64,7 +64,7 @@ export default {
 
     .search-box{
         position: relative;
-        //background-color: aquamarine;
+        padding: 0;
         input{
             position: absolute;
             z-index: 1;
@@ -72,22 +72,25 @@ export default {
             border-radius: 70px;
             border: none;
             outline: none;
-            background-color: rgba(18, 18, 18, .6);
+            background-color: rgba(18, 18, 18, .5);
             padding: 18px 0;
             box-shadow: none;
             transition: all 750ms;
             text-indent: 20px;
             &:focus{
+                color: #fff;
                 width: 100%;
-                box-shadow: 0 0 6px $color-red;
+                box-shadow: inset -2px -2px 6px $color-red, 0 -3px 10px $color-darkgrey;
             }
             &::placeholder{
                 color: lighten($color-lightgrey, 40%);
             }
+            &:focus::placeholder {
+                color: transparent;
+            }
         }
     }
     button{
-        position: absolute;
         z-index: 2;
         width: 60px;
         height: 60px;
@@ -97,6 +100,10 @@ export default {
         outline: none;
         background-color: $color-lightgrey;
         color: #fff;
+        &:hover input{
+            width: 100%;
+            background-color: #fff;
+        }
         i{
             font-size: 1.3rem;
         }
