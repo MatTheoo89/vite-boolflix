@@ -80,7 +80,7 @@ export default {
             &:focus{
                 color: #fff;
                 width: 100%;
-                box-shadow: inset -2px -2px 6px $color-red, 0 -3px 10px $color-darkgrey;
+                box-shadow: inset -2px -2px 6px $color-red;
             }
             &::placeholder{
                 color: lighten($color-lightgrey, 40%);
